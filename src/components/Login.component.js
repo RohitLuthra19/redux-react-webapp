@@ -7,8 +7,7 @@ import Card, { CardActions, CardContent, CardHeader } from 'material-ui/Card';
 import { withStyles } from 'material-ui/styles';
 import Avatar from 'material-ui/Avatar';
 import red from 'material-ui/colors/red';
-import { LockIcon } from 'material-ui-icons';
-//import LockIcon from 'material-ui/svg-icons/action/lock-outline';
+
 const styles = theme => ({
     container: {
         display: 'flex',
@@ -41,15 +40,17 @@ const styles = theme => ({
     },
     avatar: {
         backgroundColor: red[500],
-      },
+    },
 });
 
 class LoginComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {email: '', password: ''};
         this.onSubmit = this.onSubmit.bind(this);
+        this.handleEmailChange = this.handleEmailChange.bind(this);
+        this.handlePassowordChange = this.handlePassowordChange.bind(this);
     }
 
     handleEmailChange = email => event => {
@@ -63,9 +64,11 @@ class LoginComponent extends Component {
             [password]: event.target.value,
         });
     };
-    handleLoginClick = data => event => {
+    /* handleLoginClick = data => event => {
         console.log(data);
-    };
+    }; 
+    noValidate autoComplete="off"*/
+    /*  */
 
     render() {
         const { classes } = this.props;
@@ -83,7 +86,7 @@ class LoginComponent extends Component {
                         subheader="Please fill the form"
                     />
                     <CardContent>
-                        <form className={classes.container} noValidate autoComplete="off">
+                        <form className={classes.container}>
                             <TextField
                                 id="email"
                                 label="Email-Id"
@@ -101,7 +104,7 @@ class LoginComponent extends Component {
                         </form>
                     </CardContent>
                     <CardActions>
-                        <Button variant="raised" color="primary" className={classes.button} onClick={this.handleLoginClick(this.state)}>Login</Button>
+                        <Button type="submit" variant="raised" color="primary" className={classes.button} onClick={this.onSubmit}>Login</Button>
                     </CardActions>
                 </Card>
             </div>)
@@ -115,6 +118,7 @@ class LoginComponent extends Component {
             email: '',
             password: ''
         });
+        console.log(this.state);
     }
 }
 
