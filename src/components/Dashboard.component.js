@@ -6,7 +6,7 @@ import Toolbar from 'material-ui/Toolbar';
 import List from 'material-ui/List';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
-import {listItems} from './MenuList.component';
+import { menuListItems } from './MenuList.component';
 
 const drawerWidth = 240;
 
@@ -55,7 +55,7 @@ class DashboardComponent extends Component {
                     }}
                 >
                     <div className={classes.toolbar} />
-                    <List>{listItems}</List>
+                    <List>{menuListItems}</List>
                     <Divider />
                 </Drawer>
                 <main className={classes.content}>
