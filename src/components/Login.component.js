@@ -47,7 +47,7 @@ class LoginComponent extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {email: '', password: ''};
+        this.state = { email: '', password: '' };
         this.onSubmit = this.onSubmit.bind(this);
         this.handleEmailChange = this.handleEmailChange.bind(this);
         this.handlePassowordChange = this.handlePassowordChange.bind(this);
@@ -102,6 +102,11 @@ class LoginComponent extends Component {
                                 onChange={this.handlePassowordChange('password')}
                                 margin="normal" />
                         </form>
+                        <p>
+                                    {isLoginPending && <div>Please wait...</div>}
+                                    {isLoginSuccess && <div>Success.</div>}
+                                    {loginError && <div>{loginError.message}</div>}
+                                </p>
                     </CardContent>
                     <CardActions>
                         <Button type="submit" variant="raised" color="primary" className={classes.button} onClick={this.onSubmit}>Login</Button>

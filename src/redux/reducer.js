@@ -1,32 +1,33 @@
 import { combineReducers } from 'redux';// eslint-disable-next-line 
+import { routerReducer } from 'react-router-redux'
 
 // reducers.js
-export const loginProcess = (state = {
+export const reducer = (state = {
   isLoginPending: false,
   isLoginSuccess: false,
   loginError: null
 }, action) => {
   switch (action.type) {
     case 'SET_LOGIN_PENDING':
-      return action.isLoginPending;
+      return Object.assign({}, state, {
+        isLoginSuccess: action.isLoginPending
+      });
     case 'SET_LOGIN_SUCCESS':
-      return action.isLoginSuccess;
+      return Object.assign({}, state, {
+        isLoginSuccess: action.isLoginSuccess
+      });
     case 'SET_LOGIN_ERROR':
-      return action.loginError;
+      return Object.assign({}, state, {
+        isLoginSuccess: action.loginError
+      });
+    case 'SET_LOGOUT':
+      return {};
     default:
       return state;
   }
 };
 
 export const reducers = combineReducers({
-  loginProcess,
+  reducer,
+  routing: routerReducer
 });
-
-/*
-// store.js
-export function configureStore(initialState = {}) {
-  const store = createStore(reducers, initialState);
-  return store;
-}
-
-export const store = configureStore(); */
