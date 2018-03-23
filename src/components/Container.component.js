@@ -16,9 +16,16 @@ class ContainerComponent extends Component {
 
     render() {
         const { classes } = this.props;
+        var showView;
+        if(this.props.item === "medicine"){
+            showView = <div>Hello M</div>
+        }
+        else if(this.props.item === "homecare"){
+            showView = <div>Hello H</div>
+        }
         return (
             <div className={classes.root}>
-                Hello {this.props.item}
+                {showView}
             </div>
         );
     }
