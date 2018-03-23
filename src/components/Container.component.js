@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withStyles } from 'material-ui/styles';
+import MedicineOrderComponent from './MedicineOrder.component'
+import HomecareOrderComponent from './HomecareOrder.component'
 
 const styles = theme => ({
     root: {
@@ -18,10 +20,10 @@ class ContainerComponent extends Component {
         const { classes } = this.props;
         var showView;
         if(this.props.item === "medicine"){
-            showView = <div>Hello M</div>
+            showView = <MedicineOrderComponent/>
         }
         else if(this.props.item === "homecare"){
-            showView = <div>Hello H</div>
+            showView = <HomecareOrderComponent/>
         }
         return (
             <div className={classes.root}>
