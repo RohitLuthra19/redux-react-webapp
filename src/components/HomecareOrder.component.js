@@ -28,7 +28,7 @@ class HomecareOrderComponent extends Component {
             <div className={classes.root}>
                 <List>
                     <ListItem button>
-                        <ListItemText primary="Order" />
+                        <ListItemText primary="HomecareOrder" />
                     </ListItem>
                 </List>
             </div>

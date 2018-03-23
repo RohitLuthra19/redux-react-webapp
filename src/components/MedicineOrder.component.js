@@ -21,14 +21,14 @@ class MedicineOrderComponent extends Component {
     componentDidMount() {
         
     }
-    
+
     render() {
         const { classes } = this.props;
         return (
             <div className={classes.root}>
                 <List>
                     <ListItem button>
-                        <ListItemText primary="Order" />
+                        <ListItemText primary="MedicineOrder" />
                     </ListItem>
                 </List>
             </div>
